@@ -1,10 +1,10 @@
 <template>
-  <div class="max-w-4xl flex flex-col mx-auto pt-2">
-    <div class="flex mx-auto rounded-md" style="max-height: 50vh">
+  <div class="w-full max-w-3xl flex flex-col mx-auto pt-2">
+    <div class="flex mx-auto" style="max-height: 50vh">
       <img
         src="/dj-clarky.jpeg"
         alt="Dj Clark Orwick"
-        class="mx-auto object-contain rounded-md"
+        class="mx-auto object-contain md:rounded-md"
       />
     </div>
     <div class="p-2 sm:p-6">
@@ -23,7 +23,7 @@
         <div>
           <div class="flex">
             <h3
-              class="cursor-pointer text-lg font-bold w-1/3 md:w-1/2 lg:w-3/4"
+              class="cursor-pointer text-base md:text-lg font-bold w-1/3 md:w-1/2 lg:w-3/4"
               @click.prevent="
                 showingPlaylist === playlistTitle
                   ? (showingPlaylist = null)
@@ -33,7 +33,7 @@
               {{ playlistTitle }}
               <span
                 v-if="showingPlaylist === playlistTitle"
-                class="ml-2 sm:ml-6 items-center"
+                class="ml-2 text-sm sm:ml-6 items-center"
                 >^</span
               >
             </h3>
@@ -41,7 +41,7 @@
               :href="playlistFiles[playlistTitle]"
               class="ml-auto pr-1 md:pr-2 text-gray-600 text-sm cursor-pointer"
             >
-              download playlist {{ playlistTitle }}.m3u
+              download {{ playlistTitle }}.m3u
             </a>
           </div>
         </div>
