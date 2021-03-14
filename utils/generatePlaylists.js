@@ -57,13 +57,23 @@ async function init() {
       })
   )
   const finalFinalData = {}
-  const artistThumbs = {}
+  // const artistThumbs = {}
 
-  finalData.forEach((song) => {
-    finalFinalData[song.playlist] = finalFinalData[song.playlist] || []
-    finalFinalData[song.playlist].push(song)
+  Promise.resolve(
+    finalData.forEach((song, i) => {
+      finalFinalData[song.playlist] = finalFinalData[song.playlist] || []
+      finalFinalData[song.playlist].push(song)
+    })
+  )
 
-    albumArt(song.artist, (error, response) => {
+  // console.log(finalFinalData.length)
+  const json = JSON.stringify(finalFinalData, null, 2)
+
+  fs.writeFileSync('static/playlistData.json', json)
+  // eslint-disable-next-line prefer-const
+  let artistThumbs = {}
+  finalData.forEach(async (song) => {
+    await albumArt(song.artist, (error, response) => {
       if (!error) {
         console.log(response)
         artistThumbs[song.artist] = response
@@ -75,12 +85,6 @@ async function init() {
       return null
     })
   })
-
-  // console.log(finalFinalData.length)
-  const json = JSON.stringify(finalFinalData, null, 2)
-
-  fs.writeFileSync('static/playlistData.json', json)
-
   const artistThumbsJson = JSON.stringify(artistThumbs, null, 2)
 
   fs.writeFileSync('static/artistThumbs.json', artistThumbsJson)

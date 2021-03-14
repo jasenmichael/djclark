@@ -26,6 +26,23 @@
         <span class="font-bold">Clark's Rating:: </span>{{ item.clarks_rating }}
       </div> -->
     </div>
+    <div class="w-24 text-right mr-auto flex flex-col items-center">
+      <span> Find on: </span>
+      <div class="grid grid-cols-2 gap-1">
+        <a
+          :href="spotifySearch + (item.artist + ' ' || '') + item.title || ''"
+          target="_blank"
+        >
+          <div class="h-6 w-6"><img src="~/assets/spotify.png" /></div>
+        </a>
+        <a
+          :href="youtubeSearch + (item.artist + ' ' || '') + item.title || ''"
+          target="_blank"
+        >
+          <div class="h-6 w-6"><img src="~/assets/youtube.png" /></div>
+        </a>
+      </div>
+    </div>
     <!-- <pre>{{ thumb }}</pre> -->
     <!-- <div class="w-10 h-10 bg-red-500">
       <img src="" alt="" />
