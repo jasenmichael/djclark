@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full max-w-3xl flex flex-col mx-auto pt-2">
+  <div class="w-full max-w-6xl flex flex-col mx-auto pt-2">
     <div class="flex mx-auto" style="max-height: 50vh">
       <img
         src="/dj-clarky.jpeg"
