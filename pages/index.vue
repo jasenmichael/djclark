@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-6xl flex flex-col mx-auto pt-2">
+  <div class="max-w-4xl flex flex-col mx-auto pt-2">
     <div class="flex mx-auto rounded-md" style="max-height: 50vh">
       <img
         src="/dj-clarky.jpeg"
@@ -33,13 +33,13 @@
               {{ playlistTitle }}
               <span
                 v-if="showingPlaylist === playlistTitle"
-                class="ml-6 items-center"
+                class="ml-2 sm:ml-6 items-center"
                 >^</span
               >
             </h3>
             <a
               :href="playlistFiles[playlistTitle]"
-              class="ml-auto pr-2 text-gray-600 text-sm cursor-pointer"
+              class="ml-auto pr-1 md:pr-2 text-gray-600 text-sm cursor-pointer"
             >
               download playlist {{ playlistTitle }}.m3u
             </a>
