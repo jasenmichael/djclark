@@ -21,22 +21,26 @@
       <!-- <pre>showing: {{ playlists }}</pre> -->
       <div v-for="(playlistTitle, i) in Object.keys(playlists)" :key="i">
         <div>
-          <div class="flex">
-            <h3
-              class="cursor-pointer text-base md:text-lg font-bold w-1/3 md:w-1/2 lg:w-3/4"
+          <div class="flex py-1">
+            <div
+              class="flex items-center text-center border-gray-700 mb-1 pl-1 border-2 rounded-md cursor-pointer text-base md:text-lg font-bold w-1/2"
               @click.prevent="
                 showingPlaylist === playlistTitle
                   ? (showingPlaylist = null)
                   : (showingPlaylist = playlistTitle)
               "
             >
-              {{ playlistTitle }}
-              <span
+              <h3 class="mr-1">
+                {{ playlistTitle }}
+              </h3>
+              <div
                 v-if="showingPlaylist === playlistTitle"
-                class="ml-2 text-sm sm:ml-6 items-center"
-                >^</span
+                class="ml-auto mr-1 text-sm items-center transform rotate-90"
               >
-            </h3>
+                >
+              </div>
+              <div v-else class="ml-auto mr-1 text-sm items-center">></div>
+            </div>
             <a
               :href="playlistFiles[playlistTitle]"
               class="ml-auto pr-1 md:pr-2 text-gray-600 text-xs cursor-pointer"
@@ -52,7 +56,7 @@
             :artist-thumbs="artistThumbs"
           />
         </div>
-        <hr class="w-full py-2 mt-2 border-gray-700 mx-auto" />
+        <!-- <hr class="w-full py-2 mt-2 border-gray-700 mx-auto" /> -->
       </div>
       <!-- class="totop ml-auto rounded-full bg-black z-50 border-black items-center border-2 h-8 w-8 flex pl-2" -->
       <div
