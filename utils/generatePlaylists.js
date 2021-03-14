@@ -32,24 +32,12 @@ async function init() {
       // console.log('DONE====')
     })
   )
-  const artistThumbs = {}
+
   const finalData = await Promise.all(
     playlistData
       .filter((item) => item.inf)
       .map((data) => {
         const artist = data.inf.title.split(' - ')[0] || null
-        albumArt(artist, (error, response) => {
-          if (!error) {
-            console.log(response)
-            artistThumbs[artist] = response
-            return response
-          } else {
-            return null
-          }
-        }).catch(() => {
-          return null
-        })
-
         const rating = data.inf.title.split(' ').pop().replace(/\D/g, '')
         return {
           duration: data.inf.duration,
@@ -69,10 +57,23 @@ async function init() {
       })
   )
   const finalFinalData = {}
+  const artistThumbs = {}
 
   finalData.forEach((song) => {
     finalFinalData[song.playlist] = finalFinalData[song.playlist] || []
     finalFinalData[song.playlist].push(song)
+
+    albumArt(song.artist, (error, response) => {
+      if (!error) {
+        console.log(response)
+        artistThumbs[song.artist] = response
+        return response
+      } else {
+        return null
+      }
+    }).catch(() => {
+      return null
+    })
   })
 
   // console.log(finalFinalData.length)

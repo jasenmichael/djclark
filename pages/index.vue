@@ -23,7 +23,7 @@
         <div>
           <div class="flex">
             <h3
-              class="cursor-pointer text-lg font-bold md:1/3 lg:w-1/2"
+              class="cursor-pointer text-lg font-bold w-1/3 md:w-1/2 lg:w-3/4"
               @click.prevent="
                 showingPlaylist === playlistTitle
                   ? (showingPlaylist = null)
@@ -74,8 +74,7 @@ export default {
     const playlistsUrl = isDev
       ? 'http://localhost:3000/playlistData.json'
       : 'https://djclark.netlify.app/playlistData.json'
-    const artistThumbsUrl = 'http://localhost:3000/artistThumbs.json'
-    // : 'https://djclark.netlify.app/artistThumbs.json'
+    const artistThumbsUrl = 'https://djclark.netlify.app/artistThumbs.json'
     const playlists = await $axios.$get(playlistsUrl)
     const artistThumbs = await $axios.$get(artistThumbsUrl)
     // require('static/playlistData.json') // .then(res => res.json())
