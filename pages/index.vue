@@ -54,7 +54,7 @@
 <script>
 export default {
   async asyncData({ $axios }) {
-    const isDev = true
+    const isDev = false
     const url = isDev
       ? 'http://localhost:3000/playlistData.json'
       : 'https://djclark.netlify.app/playlistData.json'
