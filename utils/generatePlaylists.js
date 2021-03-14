@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 const fs = require('fs')
 const M3U8FileParser = require('m3u8-file-parser')
-const albumArt = require('album-art')
+// const albumArt = require('album-art')
 
 const playlists = [
   '/clark/Dance.m3u',
@@ -10,6 +10,7 @@ const playlists = [
   '/clark/SlowBoil.m3u',
   '/clark/SlowDance.m3u',
   '/clark/Tonight.m3u',
+  '/clark/FullTilt.m3u',
 ]
 // eslint-disable-next-line no-unused-vars
 // eslint-disable-next-line prefer-const
@@ -71,23 +72,23 @@ async function init() {
 
   fs.writeFileSync('static/playlistData.json', json)
   // eslint-disable-next-line prefer-const
-  let artistThumbs = {}
-  finalData.forEach(async (song) => {
-    await albumArt(song.artist, (error, response) => {
-      if (!error) {
-        console.log(response)
-        artistThumbs[song.artist] = response
-        return response
-      } else {
-        return null
-      }
-    }).catch(() => {
-      return null
-    })
-  })
-  const artistThumbsJson = JSON.stringify(artistThumbs, null, 2)
+  // let artistThumbs = {}
+  // finalData.forEach(async (song) => {
+  //   await albumArt(song.artist, (error, response) => {
+  //     if (!error) {
+  //       console.log(response)
+  //       artistThumbs[song.artist] = response
+  //       return response
+  //     } else {
+  //       return null
+  //     }
+  //   }).catch(() => {
+  //     return null
+  //   })
+  // })
+  // const artistThumbsJson = JSON.stringify(artistThumbs, null, 2)
 
-  fs.writeFileSync('static/artistThumbs.json', artistThumbsJson)
+  // fs.writeFileSync('static/artistThumbs.json', artistThumbsJson)
 }
 
 init()

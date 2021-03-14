@@ -39,7 +39,7 @@
             </h3>
             <a
               :href="playlistFiles[playlistTitle]"
-              class="ml-auto pr-1 md:pr-2 text-gray-600 text-sm cursor-pointer"
+              class="ml-auto pr-1 md:pr-2 text-gray-600 text-xs cursor-pointer"
             >
               download {{ playlistTitle }}.m3u
             </a>
@@ -74,17 +74,19 @@ export default {
     const playlistsUrl = isDev
       ? 'http://localhost:3000/playlistData.json'
       : 'https://djclark.netlify.app/playlistData.json'
-    const artistThumbsUrl = 'https://djclark.netlify.app/artistThumbs.json'
+    // const artistThumbsUrl = 'https://djclark.netlify.app/artistThumbs.json'
     const playlists = await $axios.$get(playlistsUrl)
-    const artistThumbs = await $axios.$get(artistThumbsUrl)
+    // const artistThumbs = await $axios.$get(artistThumbsUrl)
     // require('static/playlistData.json') // .then(res => res.json())
-    return { playlists, artistThumbs }
+    // return { playlists, artistThumbs }
+    return { playlists }
   },
   data: () => {
     return {
       showingPlaylist: null,
       playlistFiles: {
         DANCE: '/clark/Dance.m3u',
+        FULLTILT: '/clark/FullTilt.m3u',
         NEWFAVS: '/clark/NewFavs.m3u',
         SEX: '/clark/Sex.m3u',
         SLOWBALL: '/clark/SlowBoil.m3u',
