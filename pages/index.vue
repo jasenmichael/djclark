@@ -69,9 +69,9 @@
 
 <script>
 export default {
-  async asyncData({ $axios }) {
-    const isDev = false
-    const playlistsUrl = isDev
+  async asyncData({ $axios, $config }) {
+    // const isDev = false
+    const playlistsUrl = $config.isDev
       ? 'http://localhost:3000/playlistData.json'
       : 'https://djclark.netlify.app/playlistData.json'
     // const artistThumbsUrl = 'https://djclark.netlify.app/artistThumbs.json'
