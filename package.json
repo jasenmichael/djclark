@@ -26,7 +26,7 @@
     "@nuxtjs/axios": "^5.13.1",
     "@nuxtjs/pwa": "^3.3.5",
     "album-art": "^2.0.2",
-    "core-js": "^3.8.3",
+    "core-js": "^3.17.1",
     "m3u-parser": "^1.0.3",
     "m3u8-file-parser": "^0.2.4",
     "nuxt": "^2.14.12"
